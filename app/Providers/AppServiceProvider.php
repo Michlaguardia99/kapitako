@@ -24,6 +24,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Model::preventLazyLoading(!app()->isProduction());
+        // Model::preventLazyLoading(!app()->isProduction());
+        if (!App::environment(['local', 'staging'])) {
+            $this->app['request']->server->set('HTTPS', true);
+            URL::forceScheme('https');
+        }
+        
+        if (!app()->environment(['local', 'staging'])) {
+            $this->app['request']->server->set('HTTPS', true);
+            URL::forceScheme('https');
+        }
     }
 }
