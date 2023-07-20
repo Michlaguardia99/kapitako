@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
+
+// Authentication routes with email verification
 Auth::routes(['verify' => true]);
-Auth::routes(['register' => true]);
-Route::group(['middleware' => 'auth'], function () {
+
+// Route Group with 'auth' and 'verified' Middleware
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    // The following routes are accessible only to authenticated and verified users
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/sales-purchases/chart-data', 'HomeController@salesPurchasesChart')
