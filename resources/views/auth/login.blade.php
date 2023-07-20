@@ -17,7 +17,7 @@
 </head>
 
 <body class="c-app flex-row align-items-center">
-<body style="background-size:cover;background-repeat: no-repeat;background: url(../images/background.jpg); background-position:fixed">
+<body style="background: url(../images/background.jpg); background-size:cover;background-repeat:no-repeat">
 <div class="container">
     <div class="row mb-0">
         <div class="col-12 d-flex justify-content-center">
