@@ -1,0 +1,15 @@
+<?php return array (
+  'adjustment.product-table' => 'App\\Http\\Livewire\\Adjustment\\ProductTable',
+  'barcode.product-table' => 'App\\Http\\Livewire\\Barcode\\ProductTable',
+  'pos.checkout' => 'App\\Http\\Livewire\\Pos\\Checkout',
+  'pos.filter' => 'App\\Http\\Livewire\\Pos\\Filter',
+  'pos.product-list' => 'App\\Http\\Livewire\\Pos\\ProductList',
+  'product-cart' => 'App\\Http\\Livewire\\ProductCart',
+  'reports.payments-report' => 'App\\Http\\Livewire\\Reports\\PaymentsReport',
+  'reports.profit-loss-report' => 'App\\Http\\Livewire\\Reports\\ProfitLossReport',
+  'reports.purchases-report' => 'App\\Http\\Livewire\\Reports\\PurchasesReport',
+  'reports.purchases-return-report' => 'App\\Http\\Livewire\\Reports\\PurchasesReturnReport',
+  'reports.sales-report' => 'App\\Http\\Livewire\\Reports\\SalesReport',
+  'reports.sales-return-report' => 'App\\Http\\Livewire\\Reports\\SalesReturnReport',
+  'search-product' => 'App\\Http\\Livewire\\SearchProduct',
+);
