@@ -82,6 +82,6 @@
 
 <!-- CoreUI -->
 <script src="{{ mix('js/app.js') }}" defer></script>
-
+</script>
 </body>
 </html>

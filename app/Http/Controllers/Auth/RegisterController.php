@@ -93,7 +93,10 @@ public function register(Request $request)
 
     event(new Registered($user = $this->create($request->all())));
 
-    return redirect($this->redirectPath())->with('message', 'Your message');
+    // Store the success message in the session
+    $request->session()->flash('success', 'Account successfully created!');
+
+    return redirect()->route('login'); // Redirect to the login page
 }
 
 }

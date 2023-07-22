@@ -93,9 +93,20 @@
         </div>
     </div>
 </div>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: {!! json_encode(session('success')) !!}, // Use json_encode to safely output the session data
+            });
+        @endif
+    });
+</script>
 <!-- CoreUI -->
 <script src="{{ mix('js/app.js') }}" defer></script>
+
 
 </body>
 </html>
