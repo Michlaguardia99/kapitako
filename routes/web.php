@@ -28,5 +28,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/payment-flow/chart-data', 'HomeController@paymentChart')
         ->name('payment-flow.chart');
+    Route::get('/linkstorage', function () {
+            Artisan::call('storage:link');
+        });
 });
 
