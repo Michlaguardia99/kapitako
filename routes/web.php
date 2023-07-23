@@ -14,6 +14,7 @@ Route::get('/', function () {
 
 // Authentication routes with email verification
 Auth::routes(['verify' => true]);
+Artisan::call('storage:link');
 
 // Route Group with 'auth' and 'verified' Middleware
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -28,10 +29,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/payment-flow/chart-data', 'HomeController@paymentChart')
         ->name('payment-flow.chart');
-
-    Route::get('/create-symlink', function (){
-            symlink(storage_path('/app/public'), public_path('storage'));
-            echo "Symlink Created. Thanks";
-        });
 });
 
