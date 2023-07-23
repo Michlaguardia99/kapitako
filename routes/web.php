@@ -14,7 +14,6 @@ Route::get('/', function () {
 
 // Authentication routes with email verification
 Auth::routes(['verify' => true]);
-Artisan::call('storage:link');
 
 // Route Group with 'auth' and 'verified' Middleware
 Route::group(['middleware' => ['auth', 'verified']], function () {
