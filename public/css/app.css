@@ -18833,3 +18833,5 @@ a.text-center {
 .breadcrumb-item::before {
   padding: 0 10px; color: #ccc; content: "➥";
 }
+li.breadcrumb-item.active{font-size: 16px; font-weight: 900;}
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle{background-color: #e55353;}
