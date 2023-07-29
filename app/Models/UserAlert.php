@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserAlert extends Model
 {
-    protected $fillable = ['user_id'];
+    protected $guarded = ['user_id'];
 }
