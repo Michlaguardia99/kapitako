@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified; // Import the middleware
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified']], function () {
     // The following routes are accessible only to authenticated and verified users
     Route::get('/home', 'HomeController@index')->name('home');
-
+    
     Route::get('/sales-purchases/chart-data', 'HomeController@salesPurchasesChart')
         ->name('sales-purchases.chart');
 
@@ -28,5 +30,20 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/payment-flow/chart-data', 'HomeController@paymentChart')
         ->name('payment-flow.chart');
+    
+});
+// Routes accessible only to non-verified users
+Route::group(['middleware' => ['auth', 'guest']], function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+});
+
+// Routes accessible only to verified users
+Route::group(['middleware' => ['auth', 'verified', EnsureEmailIsVerified::class]], function () {
+    // The following routes are accessible only to authenticated, verified, and email-verified users
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    // Other routes inside the group...
 });
 

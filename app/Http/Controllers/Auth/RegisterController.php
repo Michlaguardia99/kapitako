@@ -13,6 +13,24 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
+    // ...
+
+    protected function redirectPath()
+    {
+        // Customize the redirect path after successful registration.
+        return '/login';
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect($this->redirectPath())->with('success', 'User successfully created.');
+    }
+
+    // ...
 
     // ...
     /*
@@ -77,7 +95,7 @@ class RegisterController extends Controller
             'is_active' => 1
         ]);
 
-        $user->assignRole('');
+        $user->assignRole('employee');
 
         return $user;
     }
