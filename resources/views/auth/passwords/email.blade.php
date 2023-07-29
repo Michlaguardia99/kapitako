@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body class="c-app flex-row align-items-center">
-<body style="background-position: center;background-repeat: no-repeat;background-image:url({{url('images/background.jpg')}})">
+<body style="background-position: center; background-repeat: no-repeat; background-image: url('images/background.jpg')">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">

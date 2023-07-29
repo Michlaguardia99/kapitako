@@ -72,7 +72,7 @@
                                    placeholder="Confirm password">
                         </div>
                         <button type="submit" class="btn btn-dark btn-block btn-flat mb-3">Register</button>
-                        <a href="{{ route('login') }}" class="text-center">I already have a membership.</a>
+                        <a href="{{ route('login') }}" class="text-center">I already have an account</a>
                     </form>
                 </div>
             </div>

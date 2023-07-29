@@ -1,6 +1,7 @@
 // CoreUI
 @import '~@coreui/coreui/scss/coreui';
 
+$breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8'><path d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='#{$breadcrumb-divider-color}'/></svg>");
 //Extra Overrides
 .btn:not([class*=ghost]):not([class*=link]):not([class*=outline]):not([class*=transparent]) {
     border: 0;
@@ -39,5 +40,7 @@ table {
         width: 100% !important;
     }
 }
-
-.c-sidebar-nav{background-color: #333 !important;}
+a.btn.btn-link.px-0{   
+     color: white;
+    box-shadow: none !important;
+}

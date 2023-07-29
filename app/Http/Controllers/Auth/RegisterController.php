@@ -13,6 +13,8 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
+
+    // ...
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -31,17 +33,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
 
     /**
@@ -75,28 +77,8 @@ class RegisterController extends Controller
             'is_active' => 1
         ]);
 
-        $user->assignRole('Customers');
+        $user->assignRole('');
 
         return $user;
- 
-    
-}
-/**
- * Handle a registration request for the application.
- *
- * @param  \Illuminate\Http\Request  $request
- * @return \Illuminate\Http\Response
- */
-public function register(Request $request)
-{
-    $this->validator($request->all())->validate();
-
-    event(new Registered($user = $this->create($request->all())));
-
-    // Store the success message in the session
-    $request->session()->flash('success', 'Account successfully created!');
-
-    return redirect()->route('login'); // Redirect to the login page
-}
-
+    }
 }

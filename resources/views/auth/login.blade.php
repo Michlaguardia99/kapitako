@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 @if(Route::has('register'))
-                <div class="card text-light bg-light py-4 " style="background-image: url('./images/try.jpg')">
+                <div class="card text-light bg-light py-4 " style="background-image: url('./images/try.png')">
                     <div class="card-body text-right">
                         <div>
                             <h1>Sign up</h1>
@@ -93,17 +93,7 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        @if(session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: {!! json_encode(session('success')) !!}, // Use json_encode to safely output the session data
-            });
-        @endif
-    });
-</script>
+
 <!-- CoreUI -->
 <script src="{{ mix('js/app.js') }}" defer></script>
 
