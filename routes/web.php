@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified; // Import the middleware
+use App\Http\Controllers\UserAlertController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,5 @@ Route::group(['middleware' => ['auth', 'verified', EnsureEmailIsVerified::class]
     // Other routes inside the group...
 });
 
+// Define the route to store user alerts
+Route::post('user/alerts', [UserAlertController::class, 'store'])->name('user.alerts.store');

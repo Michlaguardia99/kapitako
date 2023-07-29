@@ -92,11 +92,16 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'is_active' => 1
+            'is_active' => 1,
+            'email_verified_at' => now() // Set the email_verified_at to the current timestamp
         ]);
-
+    
+        // Assign the 'employee' role to the new user
         $user->assignRole('employee');
-
+    
+        // Send the email verification notification
+        $user->sendEmailVerificationNotification();
+    
         return $user;
     }
 }
