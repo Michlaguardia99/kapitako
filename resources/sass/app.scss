@@ -40,7 +40,12 @@ table {
         width: 100% !important;
     }
 }
+
 a.btn.btn-link.px-0{   
-     color: white;
+    color: white;
+   box-shadow: none !important;
+}
+.btn-link{
+    color: white;
     box-shadow: none !important;
 }

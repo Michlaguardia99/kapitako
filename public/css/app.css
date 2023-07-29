@@ -168,7 +168,10 @@ a {
   text-decoration: none;
   background-color: transparent;
   color: #e55353;
+<<<<<<< HEAD
   font-size: 16px;
+=======
+>>>>>>> parent of b7a7827 (fixing website)
 }
 @media (hover: hover), (-ms-high-contrast: none) {
   a:hover {
@@ -1104,7 +1107,11 @@ html:not([dir=rtl]) .breadcrumb-item + .breadcrumb-item {
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   color: #ffffff;
+<<<<<<< HEAD
   content: "➥";
+=======
+  content: "/";
+>>>>>>> parent of b7a7827 (fixing website)
 }
 html:not([dir=rtl]) .breadcrumb-item + .breadcrumb-item::before {
   padding-right: 0.5rem;
@@ -18814,13 +18821,14 @@ table {
     width: 100% !important;
   }
 }
+
 a.btn.btn-link.px-0{   
      color: white;
     box-shadow: none !important;
 }
 a.text-center {   
   color: white;
-   none !important;
+   
 }
 .breadcrumb-item::before {
   padding: 0 10px; color: #ccc; content: "➥";
