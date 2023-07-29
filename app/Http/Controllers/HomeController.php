@@ -32,29 +32,30 @@ class HomeController extends Controller
     
 
 
-    public function index() 
-    {
-        $sales = Sale::completed()->sum('total_amount');
-        $sale_returns = SaleReturn::completed()->sum('total_amount');
-        $purchase_returns = PurchaseReturn::completed()->sum('total_amount');
-        $product_costs = 0;
+    public function index()
+{
+    $sales = Sale::completed()->sum('total_amount');
+    $sale_returns = SaleReturn::completed()->sum('total_amount');
+    $purchase_returns = PurchaseReturn::completed()->sum('total_amount');
+    $product_costs = 0;
 
-        foreach (Sale::completed()->with('saleDetails')->get() as $sale) {
-            foreach ($sale->saleDetails??[] as $saleDetail) {
-                $product_costs += $saleDetail->product->product_cost;
-            }
+    foreach (Sale::completed()->with('saleDetails')->get() as $sale) {
+        foreach ($sale->saleDetails ?? [] as $saleDetail) {
+            $product = optional($saleDetail->product); // Use optional() to handle null values
+            $product_costs += $product->product_cost ?? 0; // Use null coalescing operator to set default value
         }
-
-        $revenue = ($sales - $sale_returns) / 100;
-        $profit = $revenue - $product_costs;
-
-        return view('home', [
-            'revenue'          => $revenue,
-            'sale_returns'     => $sale_returns / 100,
-            'purchase_returns' => $purchase_returns / 100,
-            'profit'           => $profit
-        ]);
     }
+
+    $revenue = ($sales - $sale_returns) / 100;
+    $profit = $revenue - $product_costs;
+
+    return view('home', [
+        'revenue' => $revenue,
+        'sale_returns' => $sale_returns / 100,
+        'purchase_returns' => $purchase_returns / 100,
+        'profit' => $profit
+    ]);
+}
 
 
     public function currentMonthChart() {
