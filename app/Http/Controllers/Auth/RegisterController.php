@@ -97,7 +97,7 @@ class RegisterController extends Controller
         ]);
     
         // Assign the 'employee' role to the new user
-        $user->assignRole('employee');
+        $user->assignRole('');
     
         // Send the email verification notification
         $user->sendEmailVerificationNotification();
