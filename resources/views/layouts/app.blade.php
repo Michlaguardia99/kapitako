@@ -34,7 +34,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Include SweetAlert2 script -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     @if(Session::has('success') && !auth()->user()->userAlerts->contains('user_id', auth()->id()))
     <!-- SweetAlert to display the success message -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
@@ -43,7 +42,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: "{{ Session::get('success') }}",
+                html: "{!! Session::get('success') !!}",
             }).then(() => {
                 // Save the user alert in the database to indicate that it has been shown to the current user
                 fetch("{{ route('user.alerts.store') }}", {
@@ -57,7 +56,7 @@
             });
         });
     </script>
-    @endif
+@endif
 
     @include('includes.main-js')
 </body>
