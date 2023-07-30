@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 @extends('layouts.app')
 
 @section('title', 'Home')
@@ -126,4 +127,5 @@
 
 @push('page_scripts')
     <script src="{{ mix('js/chart-config.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 @endpush
