@@ -75,7 +75,20 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => [
+                'required',
+                'string',
+                'min:12',            // Enforce a minimum password length of 12 characters
+                'confirmed',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+                /*
+                * The above regex pattern enforces the following rules:
+                * - At least one uppercase letter (A-Z)
+                * - At least one lowercase letter (a-z)
+                * - At least one digit (0-9)
+                * - At least one special character from @$!%*?&
+                */
+            ],
         ]);
     }
 
@@ -93,10 +106,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'is_active' => 1,
-            'email_verified_at' => now() // Set the email_verified_at to the current timestamp
+            'email_verified_at' => now() 
         ]);
     
-        // Assign the 'employee' role to the new user
         $user->assignRole('');
     
         // Send the email verification notification
