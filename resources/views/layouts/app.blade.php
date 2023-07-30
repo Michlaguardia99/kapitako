@@ -31,7 +31,10 @@
         @include('layouts.footer')
     </div>
     <!-- layout.blade.php or your main blade file -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+
+    <!-- SweetAlert script -->
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
     @if(Session::has('success') && !auth()->user()->userAlerts->contains('user_id', auth()->id()))
     <!-- SweetAlert to display the success message -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
@@ -58,5 +61,6 @@
 
     @include('includes.main-js')
 </body>
+
 
 </html>
