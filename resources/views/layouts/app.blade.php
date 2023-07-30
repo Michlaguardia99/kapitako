@@ -30,11 +30,11 @@
 
         @include('layouts.footer')
     </div>
-    <!-- layout.blade.php or your main blade file -->
-    <script src="{{ asset('js/select2.min.js') }}"></script>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- SweetAlert script -->
-    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+    <!-- Include SweetAlert2 script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     @if(Session::has('success') && !auth()->user()->userAlerts->contains('user_id', auth()->id()))
     <!-- SweetAlert to display the success message -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
