@@ -1,7 +1,11 @@
 $(document).ready(function () {
     let salesPurchasesBar = document.getElementById('salesPurchasesChart');
     $.get('/sales-purchases/chart-data', function (response) {
-        let salesPurchasesChart = new Chart(salesPurchasesBar, {
+        if (window.salesPurchasesChart) {
+            window.salesPurchasesChart.destroy();
+        }
+
+        window.salesPurchasesChart = new Chart(salesPurchasesBar, {
             type: 'bar',
             data: {
                 labels: response.sales.original.days,
@@ -16,17 +20,17 @@ $(document).ready(function () {
                     ],
                     borderWidth: 1
                 },
-                    {
-                        label: 'Purchases',
-                        data: response.purchases.original.data,
-                        backgroundColor: [
-                            '#A5B4FC',
-                        ],
-                        borderColor: [
-                            '#A5B4FC',
-                        ],
-                        borderWidth: 1
-                    }
+                {
+                    label: 'Purchases',
+                    data: response.purchases.original.data,
+                    backgroundColor: [
+                        '#A5B4FC',
+                    ],
+                    borderColor: [
+                        '#A5B4FC',
+                    ],
+                    borderWidth: 1
+                }
                 ]
             },
             options: {
