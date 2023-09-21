@@ -74,7 +74,7 @@
                             <p class="mt-3 mb-1" style="font-size: 15px;color: #000;">
                                 {{ $product->product_name }}
                             </p>
-                            <div>
+                            <div class="text-center">
                                 {!! $barcode !!}
                             </div>
                             <p style="font-size: 15px;color: #000;">
