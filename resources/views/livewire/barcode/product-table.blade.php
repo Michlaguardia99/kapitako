@@ -60,7 +60,7 @@
             <button onclick="printJS({ 
                 printable: 'printBarcode', 
                 type: 'html', 
-                css: '{{ asset('css/app.css')}}',
+                css: '/css/app.css',
             })" type="button" class="btn btn-primary">
                 <span wire:loading wire:target="getPdf" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 <i wire:loading.remove wire:target="getPdf" class="bi bi-file-earmark-pdf"></i> Print PDF
@@ -74,7 +74,7 @@
                             <p class="mt-3 mb-1" style="font-size: 15px;color: #000;">
                                 {{ $product->product_name }}
                             </p>
-                            <div class="text-center">
+                            <div>
                                 {!! $barcode !!}
                             </div>
                             <p style="font-size: 15px;color: #000;">
