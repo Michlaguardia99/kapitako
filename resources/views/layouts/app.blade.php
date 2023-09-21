@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
     @include('includes.main-css')
 </head>
 
@@ -32,6 +33,7 @@
     </div>
     <!-- Include jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 
     <!-- Include SweetAlert2 script -->
     @if(Session::has('success') && !auth()->user()->userAlerts->contains('user_id', auth()->id()))
@@ -59,7 +61,20 @@
 @endif
 
     @include('includes.main-js')
-</body>
+    <script>
+        const sideBarMenu = document.querySelectorAll('.c-sidebar-nav-dropdown');
 
+sideBarMenu.forEach(function(item){
+    item.addEventListener('click', function(){
+        document.querySelector('.c-sidebar').classList.add('c-sidebar-show');
+    });
+});
+
+document.querySelector('.c-body').addEventListener('click', function(){
+    document.querySelector('.c-sidebar').classList.remove('c-sidebar-show');
+})
+    </script>
+    
+</body>
 
 </html>

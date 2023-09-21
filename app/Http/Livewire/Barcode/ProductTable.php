@@ -50,6 +50,7 @@ class ProductTable extends Component
             'name' => $this->product->product_name,
         ]);
         return $pdf->stream('barcodes-'. $this->product->product_code .'.pdf');
+        // return $pdf->download('download.pdf');
     }
 
     public function updatedQuantity() {

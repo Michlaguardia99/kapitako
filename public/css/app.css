@@ -18835,4 +18835,15 @@ a.text-center {
 }
 li.breadcrumb-item.active{font-size: 16px; font-weight: 900;}
 .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle{background-color: #e55353;}
-/* sadasdas */
+/* .barcode-pdf{
+  border: 1px solid #ffffff;
+  border-style: dashed;
+  background-color: #48FCFE;
+}
+@media print{
+  .barcode-pdf{
+    border: 1px solid #ffffff;
+    border-style: dashed;
+    background-color: #48FCFE;
+  }
+} */

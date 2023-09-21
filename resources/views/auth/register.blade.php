@@ -39,7 +39,7 @@
                                         <i class="bi bi-person"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Full Name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Full Name" maxlength="35">
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
