@@ -27,6 +27,6 @@ class EnsureEmailIsVerified
         }
 
         // If the user is authenticated and verified, or if the user is a guest, proceed to the next middleware or route handler
-        return $next($request);
+        return next($request);
     }
 }
