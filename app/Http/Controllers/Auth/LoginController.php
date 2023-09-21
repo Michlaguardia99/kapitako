@@ -43,12 +43,12 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user) {
         if ($user->is_active != 1) {
             Auth::logout();
-
+    
             return back()->with([
                 'account_deactivated' => 'Your account is deactivated! Please contact with Super Admin.'
             ]);
         }
-
+    
         return next($request);
     }
 }

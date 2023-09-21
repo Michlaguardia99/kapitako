@@ -38,18 +38,25 @@
     <!-- SweetAlert to display the success message -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: "{{ Session::get('success') }}",
-                showCloseButton: true,
-                showConfirmButton: false,
-                timer: 9000 // Auto close after 9 seconds (adjust as needed)
+                html: "{!! Session::get('success') !!}",
+            }).then(() => {
+                // Save the user alert in the database to indicate that it has been shown to the current user
+                fetch("{{ route('user.alerts.store') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                    },
+                    body: JSON.stringify({}),
+                });
             });
         });
     </script>
-    @endif
+@endif
 
     @include('includes.main-js')
 </body>

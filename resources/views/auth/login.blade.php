@@ -42,10 +42,10 @@
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Success!',
-                                text: "{{ Session::get('success') }}",
+                                text: 'Please use your freshly created account to log in.',
                                 showCloseButton: true,
                                 showConfirmButton: false,
-                                timer: 5000 // Auto close after 5 seconds
+                                timer: 12000 // Auto close after 5 seconds
                             });
                         });
                     </script>

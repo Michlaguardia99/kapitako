@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'password' => [
                 'required',
                 'string',
-                'min:12',            // Enforce a minimum password length of 12 characters
+                'min:8',            // Enforce a minimum password length of 12 characters
                 'confirmed',
                 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
                 /*
@@ -109,7 +109,7 @@ class RegisterController extends Controller
             'email_verified_at' => now() 
         ]);
     
-        $user->assignRole('');
+        $user->assignRole('Employee');
     
         // Send the email verification notification
         $user->sendEmailVerificationNotification();
