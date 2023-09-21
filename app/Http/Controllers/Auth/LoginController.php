@@ -49,7 +49,7 @@ class LoginController extends Controller
             ]);
         }
     
-        return next($request);
+        return $this->sendLoginResponse($request);
     }
 }
 
