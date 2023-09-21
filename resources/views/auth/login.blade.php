@@ -69,7 +69,7 @@
                                                 <i class="bi bi-person"></i>
                                             </span>
                                         </div>
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email">
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" maxlength="35">
                                         @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -80,7 +80,7 @@
                                                 <i class="bi bi-lock"></i>
                                             </span>
                                         </div>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" maxlength="8">
                                         @error('password')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
