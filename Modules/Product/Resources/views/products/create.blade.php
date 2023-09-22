@@ -108,8 +108,8 @@
                                         <label for="product_tax_type">Tax type</label>
                                         <select class="form-control" name="product_tax_type" id="product_tax_type">
                                             <option value="" selected disabled>Select Tax Type</option>
-                                            <option value="1">Exclusive</option>
-                                            <option value="2">Inclusive</option>
+                                            <option value="1">Percentage</option>
+                                            <option value="2">VAT</option>
                                         </select>
                                     </div>
                                 </div>
