@@ -18,7 +18,7 @@
 
 <body class="c-app flex-row align-items-center" ;>
 
-    <body style="background-position: center;background-repeat: no-repeat;background-image: url('/images/background.jpg')">
+    <body style="background-size:cover;background-position: center;background-repeat: no-repeat;background-image: url('/images/background.jpg')">
         <div class="container">
             @if(session('success'))
             <div class="alert alert-success">

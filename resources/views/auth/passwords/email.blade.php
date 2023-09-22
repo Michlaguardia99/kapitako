@@ -52,6 +52,9 @@
                                             <button class="btn btn-block btn-dark" type="submit">
                                                 <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
                                             </button>
+                                            <a href="/login" class="btn btn-block btn-dark">
+                                                <i class="fa fa-btn fa-sign-in"></i> Go to Login Page
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
