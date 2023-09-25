@@ -79,7 +79,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Note</th>
+                                    <th>Expiration</th>
                                     <td>{{ $product->product_note ?? 'N/A' }}</td>
                                 </tr>
                             </table>

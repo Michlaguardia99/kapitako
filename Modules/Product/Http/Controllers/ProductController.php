@@ -95,4 +95,8 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
+    public function query(Product $model)
+{
+    return $model->newQuery()->with('category')->with('product_note');
+}
 }

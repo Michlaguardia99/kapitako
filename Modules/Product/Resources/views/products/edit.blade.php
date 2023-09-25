@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="product_note">Note</label>
+                                <label for="product_note">Expiration</label>
                                 <textarea name="product_note" id="product_note" rows="4 " class="form-control">{{ $product->product_note }}</textarea>
                             </div>
                         </div>

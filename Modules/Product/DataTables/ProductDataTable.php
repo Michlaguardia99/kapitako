@@ -86,6 +86,14 @@ class ProductDataTable extends DataTable
                 ->title('Category')
                 ->className('text-center align-middle'),
 
+                Column::make('category.category_name')
+                ->title('Category')
+                ->className('text-center align-middle'),
+
+                Column::make('product_note')
+                ->title('Expiration')
+                ->className('text-center align-middle'),
+
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
