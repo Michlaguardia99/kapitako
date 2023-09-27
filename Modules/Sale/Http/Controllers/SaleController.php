@@ -14,9 +14,15 @@ use Modules\Sale\Entities\SaleDetails;
 use Modules\Sale\Entities\SalePayment;
 use Modules\Sale\Http\Requests\StoreSaleRequest;
 use Modules\Sale\Http\Requests\UpdateSaleRequest;
+use PDF;
 
 class SaleController extends Controller
 {
+    // public function generatePDF($id)
+    // {
+    //     $pdf = PDF::loadHTML("print",[]);
+    //     return $pdf->inline();
+    // }
 
     public function index(SalesDataTable $dataTable) {
         abort_if(Gate::denies('access_sales'), 403);
@@ -230,4 +236,5 @@ class SaleController extends Controller
 
         return redirect()->route('sales.index');
     }
+
 }
