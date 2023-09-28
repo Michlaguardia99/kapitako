@@ -36,12 +36,13 @@ return [
     'pdf' => [
         'enabled' => true,
         // 'binary'  => env('WKHTML_PDF_BINARY', base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),),
-        // 'binary'  => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"',
-        'binary'  => ('/vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i386'),
+        // 'binary'  => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"', working on local
+        // 'binary'  => ('/vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i386'),
         // 'binary'  => '/usr/bin/wkhtmltopdf', // Update this path
         // 'binary'  => '/usr/local/bin/wkhtmltopdf-amd64',
         // 'binary' => env('WKHTMLTOPDF_BINARY_PATH', '/usr/local/bin/wkhtmltopdf'),
         // 'binary'  => '/usr/local/bin/wkhtmltopdf-amd64',
+        'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
         'timeout' => false,
         'options' => [  
             'enable-local-file-access' => true,
@@ -55,7 +56,8 @@ return [
         // 'binary'  => '""C:\Program Files\wkhtmltopdf\bin\wkhtmltoimage.exe"',
         // 'binary'  => '/usr/bin/wkhtmltoimage', // Update this path
         // 'binary' => env('WKHTMLTOIMAGE_BINARY_PATH', '/usr/local/bin/wkhtmltoimage'),
-        'binary'  => ('/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
+        // 'binary'  => ('/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
+        'binary'  => env('WKHTML_IMG_BINARY', '/usr/local/bin/wkhtmltoimage'),
 
         'timeout' => false,
         'options' => [
