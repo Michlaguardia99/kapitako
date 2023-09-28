@@ -42,9 +42,10 @@ return [
         // 'binary'  => '/usr/local/bin/wkhtmltopdf-amd64',
         // 'binary' => env('WKHTMLTOPDF_BINARY_PATH', '/usr/local/bin/wkhtmltopdf'),
         // 'binary'  => '/usr/local/bin/wkhtmltopdf-amd64',
-        'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
+        // 'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
+        'binary'  => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"',
         'timeout' => false,
-        'options' => [  
+        'options' => [
             'enable-local-file-access' => true,
             'print-media-type' => true
         ],
@@ -57,7 +58,7 @@ return [
         // 'binary'  => '/usr/bin/wkhtmltoimage', // Update this path
         // 'binary' => env('WKHTMLTOIMAGE_BINARY_PATH', '/usr/local/bin/wkhtmltoimage'),
         // 'binary'  => ('/vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
-        'binary'  => env('WKHTML_IMG_BINARY', '/usr/local/bin/wkhtmltoimage'),
+        // 'binary'  => env('WKHTML_IMG_BINARY', '/usr/local/bin/wkhtmltoimage'),
 
         'timeout' => false,
         'options' => [
