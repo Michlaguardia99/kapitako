@@ -26,7 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         return view('sale::print', compact(['sale', 'customer']));
 
-    })->name('sales.pdf');
+    })->name('sales.pos.pdf');
+
     // Route::get('/sales/pdf/{id}', function ($id) {
     //     $sale = \Modules\Sale\Entities\Sale::findOrFail($id);
     //     $customer = \Modules\People\Entities\Customer::findOrFail($sale->customer_id);
