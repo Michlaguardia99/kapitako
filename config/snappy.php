@@ -43,7 +43,7 @@ return [
         // 'binary' => env('WKHTMLTOPDF_BINARY_PATH', '/usr/local/bin/wkhtmltopdf'),
         // 'binary'  => '/usr/local/bin/wkhtmltopdf-amd64',
         // 'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
-        'binary'  => '"wkhtmltopdf\bin\wkhtmltopdf.exe"',
+        'binary'  => '"public\wkhtmltopdf\bin\wkhtmltopdf.exe"',
         'timeout' => false,
         'options' => [
             'enable-local-file-access' => true,
