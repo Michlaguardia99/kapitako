@@ -14,7 +14,7 @@ use Modules\Sale\Entities\SaleDetails;
 use Modules\Sale\Entities\SalePayment;
 use Modules\Sale\Http\Requests\StoreSaleRequest;
 use Modules\Sale\Http\Requests\UpdateSaleRequest;
-use PDF;
+// use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class SaleController extends Controller
 {
