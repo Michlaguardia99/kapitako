@@ -10,10 +10,11 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
+    <button id="generatePdfButton">Generate PDF </button>
+    <div class="row" id="contentToConvert">
         <div class="col-xs-12">
             <div style="text-align: center;margin-bottom: 25px;">
-                <img width="180" src="{{ public_path('images/logo-dark.png') }}" alt="Logo">
+                <img width="180" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
                 <h4 style="margin-bottom: 20px;">
                     <span>Reference::</span> <strong>{{ $sale->reference }}</strong>
                 </h4>
@@ -129,5 +130,23 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+    const generatePdfButton = document.getElementById('generatePdfButton');
+
+    generatePdfButton.addEventListener('click', () => {
+        const element = document.getElementById('contentToConvert'); // Replace with the ID of the HTML content you want to convert to PDF
+        const opt = {
+            margin:       1,
+            filename:     'sales.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().from(element).set(opt).save();
+    });
+</script>
 </body>
 </html>
