@@ -6,69 +6,86 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale Details</title>
-    <style>
-        body {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 12px;
-    line-height: 18px;
-    margin: 0 auto;
-    max-width: 800px;
-    background-color: #f4f4f4; /* Background color */
-    background-image: url('path/to/your/image.jpg'); /* Background image */
-    background-repeat: no-repeat; /* Prevent image from repeating */
-    background-size: cover; /* Cover the entire body with the background image */
-    background-position: center center; /* Center the background image */
-}
-        * {
-            font-size: 12px;
-            line-height: 18px;
-            font-family: 'Ubuntu', sans-serif;
-        }
-        h2 {
-            font-size: 16px;
-        }
-        td,
-        th,
-        tr,
-        table {
-            border-collapse: collapse;
-        }
-        tr {border-bottom: 1px dashed #ddd;}
-        td,th {padding: 7px 0;width: 50%;}
-
-        table {width: 100%;}
-        tfoot tr th:first-child {text-align: left;}
-
-        .centered {
-            text-align: center;
-            align-content: center;
-        }
-        small{font-size:11px;}
-
-        @media print {
-            * {
-                font-size:12px;
-                line-height: 20px;
-            }
-            td,th {padding: 5px 0;}
-            .hidden-print {
-                display: none !important;
-            }
-            tbody::after {
-                content: '';
-                display: block;
-                page-break-after: always;
-                page-break-inside: auto;
-                page-break-before: avoid;
-            }
-        }
-    </style>
+    
     <!-- <link rel="stylesheet" href="{{ public_path('b3/bootstrap.min.css') }}"> -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 </head>
 <body>
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+    .container-fluid {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .card {
+        /* border: 1px solid #ccc; */
+        border-radius: 10px;
+        margin-bottom: 20px;
+        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .badge {
+        font-size: 12px;
+    }
+
+        /* .badge-success {
+            background-color: #28a745;
+            color: #fff;
+        } */
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+    }
+/* 
+    .table th {
+        background-color: #f4f4f4;
+    } */
+
+    .left {
+        text-align: left;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 25px;
+        font-style: italic;
+    }
+</style> 
+
 <div class="container-fluid">
-    <button id="generatePdfButton">Generate PDF </button>
+    <button id="generatePdfButton" style="background-color: #e55353; color: #ffffff; font-size: 16px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Generate PDF </button>
     <div class="row" id="contentToConvert">
         <div class="col-xs-12">
             <div style="text-align: center;margin-bottom: 25px;">
@@ -194,23 +211,19 @@
     const generatePdfButton = document.getElementById('generatePdfButton');
 
     generatePdfButton.addEventListener('click', () => {
-        const element = document.getElementById('contentToConvert'); // Replace with the ID of the HTML content you want to convert to PDF
+        const element = document.getElementById('contentToConvert');
         const opt = {
-            margin:       [10, 10, 10, 10], // Add default margins (top, right, bottom, left) in millimeters
-            filename:     'sales.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 1 },
-            jsPDF: {
-                unit: 'mm', // Change to millimeters for a more standard unit in invoicing
-                format: [210, 297], // Use A4 format (210mm width, 297mm height)
-                orientation: 'portrait' // Keep in portrait mode for most invoices
-            }
+            margin: 10,
+            filename: 'sales.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 1 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
-        // Generate PDF
         html2pdf().from(element).set(opt).save();
     });
 </script>
+
 
 </body>
 </html>
