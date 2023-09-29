@@ -21,7 +21,7 @@
 
 <body class="c-app flex-row align-items-center">
 
-    <body style="background: url(../images/background2.jpg); background-size:cover;background-repeat:no-repeat">
+    <body style="background: url(../images/background3.jpg); background-size:cover;background-repeat:no-repeat">
         <div class="container">
 
             <div class="row mb-0">
