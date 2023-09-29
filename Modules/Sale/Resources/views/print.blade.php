@@ -6,7 +6,65 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale Details</title>
-    <link rel="stylesheet" href="{{ public_path('b3/bootstrap.min.css') }}">
+    <style>
+        body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #f4f4f4; /* Background color */
+    background-image: url('path/to/your/image.jpg'); /* Background image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-size: cover; /* Cover the entire body with the background image */
+    background-position: center center; /* Center the background image */
+}
+        * {
+            font-size: 12px;
+            line-height: 18px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        td,
+        th,
+        tr,
+        table {
+            border-collapse: collapse;
+        }
+        tr {border-bottom: 1px dashed #ddd;}
+        td,th {padding: 7px 0;width: 50%;}
+
+        table {width: 100%;}
+        tfoot tr th:first-child {text-align: left;}
+
+        .centered {
+            text-align: center;
+            align-content: center;
+        }
+        small{font-size:11px;}
+
+        @media print {
+            * {
+                font-size:12px;
+                line-height: 20px;
+            }
+            td,th {padding: 5px 0;}
+            .hidden-print {
+                display: none !important;
+            }
+            tbody::after {
+                content: '';
+                display: block;
+                page-break-after: always;
+                page-break-inside: auto;
+                page-break-before: avoid;
+            }
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="{{ public_path('b3/bootstrap.min.css') }}"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 </head>
 <body>
 <div class="container-fluid">
@@ -131,22 +189,28 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 <script>
     const generatePdfButton = document.getElementById('generatePdfButton');
 
     generatePdfButton.addEventListener('click', () => {
         const element = document.getElementById('contentToConvert'); // Replace with the ID of the HTML content you want to convert to PDF
         const opt = {
-            margin:       1,
+            margin:       [10, 10, 10, 10], // Add default margins (top, right, bottom, left) in millimeters
             filename:     'sales.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            html2canvas:  { scale: 1 },
+            jsPDF: {
+                unit: 'mm', // Change to millimeters for a more standard unit in invoicing
+                format: [210, 297], // Use A4 format (210mm width, 297mm height)
+                orientation: 'portrait' // Keep in portrait mode for most invoices
+            }
         };
 
+        // Generate PDF
         html2pdf().from(element).set(opt).save();
     });
 </script>
+
 </body>
 </html>
